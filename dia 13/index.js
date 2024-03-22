@@ -76,15 +76,46 @@ class Carro{
     constructor(nome, potencia, velocidadeMaxima, aceleracao){
         this.Nome = nome;
         this.Potencia = potencia;
-        this.VelocidadeMaxima = velocidade;
+        this.VelocidadeMaxima = velocidadeMaxima;
         this.Aceleracao = aceleracao;
     }
  
+    exibirInformacoesCarro(){
+        console.log("Informaçoes do carro")
+        console.log("Equipe do carro: " + this.Nome)
+        console.log("Potência do carro em cavalos: " + this.Potencia)
+        console.log("Velocidade maxima do carro: " + this.VelocidadeMaxima)
+        console.log("Aceleração do carro: " + this.Aceleracao)
+    }
 
     tempoMedio(distancia){
-        console.log = Number(prompt("Insira uma distância em metros"))
         let resultado = distancia / (this.VelocidadeMaxima / this.Aceleracao)
         return resultado
     }
 }
 
+const meuCarro = new Carro("Ferrari", 1000, 240, 2.6)
+meuCarro.exibirInformacoesCarro();
+
+let distanciaPercorrida = Number(prompt("Insira uma distância em metros"))
+let tempoPercorrido = meuCarro.tempoMedio(distanciaPercorrida)
+console.log('O tempo medio percorrido é:' + tempoPercorrido)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+class Corrida {
+    Nome
+    Tipo
+    Distancia
+    Vencedor = ""
+    Participantes = []
+
+    constructor(nome, tipo, distancia, vencedor, participantes){
+        this.Nocal = nome;
+        this.Tipo = tipo;
+        this.Distancia = distancia;
+        this.Vencedor = vencedor
+        this.Participantes = participantes
+    }
+}
