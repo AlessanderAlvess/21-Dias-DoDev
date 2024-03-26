@@ -108,14 +108,45 @@ class Corrida {
     Nome
     Tipo
     Distancia
-    Vencedor = ""
-    Participantes = []
+    Vencedor
+    Participantes
 
-    constructor(nome, tipo, distancia, vencedor, participantes){
-        this.Nocal = nome;
+    constructor(nome, tipo, distancia){
+        this.Nome = nome;
         this.Tipo = tipo;
         this.Distancia = distancia;
-        this.Vencedor = vencedor
-        this.Participantes = participantes
+        this.Vencedor = ""
+        this.Participantes = []
+    }
+
+    DefinirVencedor(){
+        let menorTempo = this.Participantes[0].tempoMedio(this.Distancia)
+        let vencedor = this.Participantes[0]
+
+        for(let index = 1; index < this.Participantes.length; index++) {
+            let tempo = this.Participantes[index].tempoMedio(this.Distancia)
+            if (tempo < menorTempo){
+                menorTempo = tempo
+                vencedor = this.Participantes[index]
+            }
+        }
+
+        return this.Vencedor = vencedor
+
+    }
+
+    ExibirVencedor(){
+        alert("O vendedor é o: " + this.Vencedor.Nome)
     }
 }
+
+let corrida = new Corrida('Chevette', "Stockcar", 50000)
+
+corrida.Participantes[0] = new Carro("Gol", 140, 180, 10) 
+corrida.Participantes[1] = new Carro("Polo", 420, 240, 5)
+corrida.Participantes[2] = new Carro("Ds3", 600, 280, 2)
+
+
+corrida.DefinirVencedor()
+corrida.ExibirVencedor()
+
